@@ -1,7 +1,33 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // Debug configuration for C/C++ using clang + lldb on macOS.
+    // This configuration builds the active file with the task "C/C++: clang build active file"
+    // before launching the debugger.
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "name": "Clang Build and Debug Active File",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "clang build robust",
+            "MIMode": "lldb"
+        },
+        {
+            "name": "Run Without Build",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/firstprogram",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        }
+    ]
 }
